@@ -14,7 +14,7 @@ import math
 
 
 df = pd.read_csv('home.csv')
-df
+print(df)
 
 
 # In[33]:
@@ -22,7 +22,7 @@ df
 
 df = pd.read_csv('home.csv')
 df.bedroom = df.bedroom.fillna(math.floor(df.bedroom.median())) # fill NaN data with mean of number of bedroom
-df
+print(df)
 
 
 # In[34]:
@@ -37,26 +37,26 @@ reg.fit(df[['area','bedroom','age']],df.price) # training data, here [ area = x1
 # In[35]:
 
 
-reg.coef_   # printint value of m1,m2,m3, (where m1,m2,m3 is slop)
+print(reg.coef_)   # printint value of m1,m2,m3, (where m1,m2,m3 is slop)
 
 
 # In[36]:
 
 
-reg.intercept_ # printing value of c, where c is intercept point,
+print(reg.intercept_) # printing value of c, where c is intercept point,
 
 
 # In[37]:
 
 
-reg.predict(df[['area','bedroom','age']]) # prediction of data
+print(reg.predict(df[['area','bedroom','age']])) # prediction of data
 
 
 # In[38]:
 
 
 y_pred = reg.predict([[5000,5,10]]) # prediction of data
-y_pred
+print(y_pred)
 
 # we can also predict price by using above formula with the help of value of m1,m2,m3 and c
 # [ y=m1*x1 + m2*x2 + m3*x3 + ...Mn*Xn + c ] formula
@@ -79,16 +79,4 @@ while True:
     if input("you want to continue [Y/N]? ") == "n":
         break
     print('_____________________________________________________')
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
